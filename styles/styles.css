@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color-scheme: dark;
+
+}
+
+body {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../fotos/la_cocina_de_jose/pixlr-image-generator-1d677b0c-206a-4923-b20d-398bc8cae1c0.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    scroll-behavior:smooth;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    /* color: #000; */
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* color: #000; */
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    /* color: #000; */
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    /* color: #000; */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.5s ease;
+}
+a:hover {
+    color: #5c140a;
+    text-decoration: underline 3px solid;
+    
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #ffffff33;
+}
+button:hover { 
+    border: 1px solid #ffffffc3;
+    /* background-color: #5c140a; */
+    box-shadow: #ffffff33 0px 2px 6px;
+    transition: all 0.5s ease;
+}
+
+header {
+    backdrop-filter: blur(10px);
+    background-color: #0000006b;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    filter: blur(0.5px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+    /* padding: 1rem 10rem; */
+    /* background-color: #0000006b; */
+    /* filter: blur(0.5px); */
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+nav>ul>li {
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+section {
+    border: 2px solid #ffffff33;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #0000006b;
+    backdrop-filter: blur(10px);
+
+    color: #fff;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    /* flex: 1 1 calc(25% - 20px);  */
+
+}
+
+/* article{
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+} */
+.slide-container {
+    display: flex;
+    /* justify-content: space-evenly; */
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.carousel {
+    width: 100%;
+    height: 500px;
+    overflow-x: auto;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; */
+}
+
+.slide {
+    border-radius: 10px;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ffffff33;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.slide img:hover {
+    border: 1px solid #ffffffda;
+    transform: scale(1.1);
+    transition: all 0.5s ease ;
+}
+
+footer {
+    backdrop-filter: blur(10px);
+
+    margin-top: 0.5rem;
+    background-color: #0000006b;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+}

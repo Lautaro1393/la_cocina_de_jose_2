@@ -1,0 +1,52 @@
+	PLATOS
+Lomo al verdeo con papas españolas
+Matambre a la pizza con guarnicion
+vacio con papas fritas
+bife de chorizo con guarnicion
+bife de costilla con guarnicion 
+churrasco de cuadril con guarnicion
+Escalope con guarnicion
+Tapa de asado con papas al horno 
+Filet a la romana con pure
+Pollo grille a la pizza con guarnicion
+Tallarines con estofado
+Ñoquis con estofado
+Polenta a la bolognesa
+
+	PIZZAS
+Muzzarela
+Napolitana
+Jamon y queso
+Huevo
+Roquefort
+
+	MILANESAS Y SUPREMAS
+Napolitana con guarnicion
+Suiza con guarnicion
+Fugazzeta con guarnicion
+Roquefort con guarnicion
+
+	GUARNICIONES
+Papas fritas
+Papas al horno
+Papas a la española
+Pure de papas
+Pure mixto
+Pure de calabaza
+
+	SANDWICH
+Milanea de ternera con lechuga, tomate y mayonesa
+Milanesa de tenera con lechuga, tomate, jamon, queso, huevo y mayonesa
+Suprema con lechuga, tomate, jamon, queso y mayonesa
+
+nro : +541169146371
+
+
+
+
+
+
+
+
+
+
