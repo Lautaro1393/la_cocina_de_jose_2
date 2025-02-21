@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     color-scheme: dark;
-
+scroll-snap-type: proximity;
+    scrollbar-color: #ffffff33 #00000000 ;
+    scrollbar-width: thin;
 }
 
 body {
@@ -11,8 +13,9 @@ body {
     font-family: 'Roboto', sans-serif;
     background-image: url('../fotos/la_cocina_de_jose/pixlr-image-generator-1d677b0c-206a-4923-b20d-398bc8cae1c0.png');
     background-size: cover;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     scroll-behavior:smooth;
+    background-size:auto;
 }
 
 h1 {
@@ -124,26 +127,26 @@ section {
 
 }
 
-/* article{
-    padding: 1rem;
-    margin: 1rem;
-    background-color: #000;
-    color: #fff;
-    border-radius: 10px;
-    width: 30%;
-    text-align: center;
-} */
+
 .slide-container {
     display: flex;
+    /* flex-shrink:none; */
     /* justify-content: space-evenly; */
     transition: transform 0.3s ease;
     white-space: nowrap;
+    width: fit-content;
+    
+    
 }
 
 .carousel {
     width: 100%;
     height: 500px;
     overflow-x: auto;
+    scroll-snap-type: proximity;
+    scrollbar-color: #ffffff33 #00000000 ;
+    scrollbar-width: thin;
+    /* scrollbar-width: thin; */
     /* display: flex; */
     /* justify-content: center;
     align-items: center;
@@ -173,12 +176,14 @@ section {
     border-radius: 10px;
 }
 
-.slide img:hover {
-    border: 1px solid #ffffffda;
-    transform: scale(1.1);
+.slide img:hover {  
+   /* transform: scale(1.1); */
+   filter:contrast(1.2);
     transition: all 0.5s ease ;
 }
-
+.slide:hover{
+    border: 1px solid #5c140a;
+}
 footer {
     backdrop-filter: blur(10px);
 
@@ -190,4 +195,119 @@ footer {
     position: sticky;
     bottom: 0;
     z-index: 1000;
+}
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    body {
+        background-size: contain;
+    }
+
+    header, footer {
+        padding: 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel {
+        height: auto;
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: proximity;
+    }
+
+    .slide-container {
+        display: flex;
+        flex-wrap: nowrap;
+        height:  fit-content;;
+    }
+
+    .slide {
+        width: calc(45% / 10 - 1rem); /* Ajusta el ancho para mostrar 3 slides */
+        margin-right: 0.5rem;
+        scroll-snap-type: proximity;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+        scroll-snap-type: proximity;
+    }
+
+    section {
+        padding: 0.5rem;
+    }
+
+    button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Estilos para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .carousel {
+        height: 400px;
+        display: flex;
+        overflow-x: scroll;
+    }
+
+    .slide-container {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .slide {
+        width: calc(100% / 3 - 1rem); /* Ajusta el ancho para mostrar 3 slides */
+        margin-right: 1rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para desktops */
+@media (min-width: 1025px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .carousel {
+        height: 500px;
+        display: flex;
+        overflow-x: scroll;
+    }
+
+    .slide-container {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .slide {
+        width: calc(100% / 3 - 1rem); /* Ajusta el ancho para mostrar 3 slides */
+        margin-right: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
 }
