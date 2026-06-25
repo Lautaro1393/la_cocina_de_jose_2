@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
-import { useCart } from '@/store/cartStore';
+import { useCart, selectTotalQty } from '@/store/cartStore';
 import clsx from 'clsx';
 
 export function CartButton() {
-  const totalQty = useCart((s) => s.items.reduce((acc, l) => acc + l.qty, 0));
+  const totalQty = useCart(selectTotalQty);
   const open = useCart((s) => s.open);
   const [pulse, setPulse] = useState(false);
 
@@ -31,16 +31,22 @@ export function CartButton() {
     >
       <ShoppingCart className="h-5 w-5" aria-hidden="true" />
       {totalQty > 0 && (
-        <span
-          className={clsx(
-            'absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center',
-            'rounded-full bg-accent px-1.5 text-[11px] font-semibold leading-none text-text-primary',
-            'ring-2 ring-bg-base',
-            pulse && 'animate-pulse-once',
-          )}
-        >
-          {totalQty}
-        </span>
+        <>
+          <span
+            className={clsx(
+              'absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center',
+              'rounded-full bg-accent px-1.5 text-[11px] font-semibold leading-none text-text-primary',
+              'ring-2 ring-bg-base',
+              pulse && 'animate-pulse-once',
+            )}
+            aria-hidden="true"
+          >
+            {totalQty}
+          </span>
+          <span className="sr-only" aria-live="polite">
+            {totalQty} {totalQty === 1 ? 'producto' : 'productos'} en el carrito
+          </span>
+        </>
       )}
     </button>
   );

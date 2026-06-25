@@ -1,6 +1,7 @@
 import { menu } from '@/lib/menu';
 import { CategoryBlock } from './CategoryBlock';
 import { CategoryTabs } from './CategoryTabs';
+import { MenuDateBadge } from './MenuDateBadge';
 
 export function MenuSection() {
   return (
@@ -10,9 +11,7 @@ export function MenuSection() {
           <h2 className="text-display text-3xl font-semibold text-text-primary sm:text-4xl">
             Menú del día
           </h2>
-          <span className="text-xs uppercase tracking-wider text-text-muted">
-            {new Intl.DateTimeFormat('es-AR', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}
-          </span>
+          <MenuDateBadge />
         </div>
       </div>
       <CategoryTabs />

@@ -1,12 +1,19 @@
 import clsx from 'clsx';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-type Variant = 'primary' | 'ghost' | 'icon' | 'outline';
+type Variant = 'primary' | 'outline' | 'ghost' | 'icon';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
   children: ReactNode;
 }
+
+const baseClasses = clsx(
+  'inline-flex items-center justify-center gap-2',
+  'transition-all duration-200',
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base',
+  'disabled:opacity-50 disabled:pointer-events-none',
+);
 
 const variantStyles: Record<Variant, string> = {
   primary:
@@ -26,7 +33,7 @@ const sizeStyles: Record<Variant, string> = {
   icon: 'h-11 w-11 rounded-full',
 };
 
-export function Button({
+function ButtonRoot({
   variant = 'primary',
   className,
   children,
@@ -37,10 +44,7 @@ export function Button({
     <button
       type={type}
       className={clsx(
-        'inline-flex items-center justify-center gap-2',
-        'transition-all duration-200',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base',
-        'disabled:opacity-50 disabled:pointer-events-none',
+        baseClasses,
         sizeStyles[variant],
         variantStyles[variant],
         className,
@@ -51,3 +55,17 @@ export function Button({
     </button>
   );
 }
+
+type ButtonComponent = typeof ButtonRoot & {
+  Primary: typeof ButtonRoot;
+  Outline: typeof ButtonRoot;
+  Ghost: typeof ButtonRoot;
+  Icon: typeof ButtonRoot;
+};
+
+export const Button = Object.assign(ButtonRoot, {
+  Primary: (props: ButtonProps) => <ButtonRoot {...props} variant="primary" />,
+  Outline: (props: ButtonProps) => <ButtonRoot {...props} variant="outline" />,
+  Ghost: (props: ButtonProps) => <ButtonRoot {...props} variant="ghost" />,
+  Icon: (props: ButtonProps) => <ButtonRoot {...props} variant="icon" />,
+}) as ButtonComponent;
