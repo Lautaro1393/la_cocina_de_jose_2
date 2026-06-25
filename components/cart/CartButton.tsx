@@ -21,7 +21,6 @@ export function CartButton() {
     <button
       type="button"
       onClick={open}
-      aria-label={`Carrito con ${totalQty} ${totalQty === 1 ? 'producto' : 'productos'}`}
       className={clsx(
         'relative inline-flex h-11 w-11 items-center justify-center rounded-full',
         'glass text-text-primary',
@@ -31,23 +30,21 @@ export function CartButton() {
     >
       <ShoppingCart className="h-5 w-5" aria-hidden="true" />
       {totalQty > 0 && (
-        <>
-          <span
-            className={clsx(
-              'absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center',
-              'rounded-full bg-accent px-1.5 text-[11px] font-semibold leading-none text-text-primary',
-              'ring-2 ring-bg-base',
-              pulse && 'animate-pulse-once',
-            )}
-            aria-hidden="true"
-          >
-            {totalQty}
-          </span>
-          <span className="sr-only" aria-live="polite">
-            {totalQty} {totalQty === 1 ? 'producto' : 'productos'} en el carrito
-          </span>
-        </>
+        <span
+          className={clsx(
+            'absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center',
+            'rounded-full bg-accent px-1.5 text-[11px] font-semibold leading-none text-text-primary',
+            'ring-2 ring-bg-base',
+            pulse && 'animate-pulse-once',
+          )}
+          aria-hidden="true"
+        >
+          {totalQty}
+        </span>
       )}
+      <span className="sr-only">
+        Carrito{totalQty > 0 ? `, ${totalQty} ${totalQty === 1 ? 'producto' : 'productos'}` : ' vacío'}
+      </span>
     </button>
   );
 }

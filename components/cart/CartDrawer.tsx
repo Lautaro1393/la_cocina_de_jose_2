@@ -83,7 +83,7 @@ export function CartDrawer() {
 
   return (
     <div
-      aria-hidden={!isOpen}
+      inert={!isOpen}
       className={clsx(
         'fixed inset-0 z-50 transition-opacity duration-300',
         isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
