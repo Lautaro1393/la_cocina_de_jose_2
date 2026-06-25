@@ -5,7 +5,7 @@ import { MenuDateBadge } from './MenuDateBadge';
 
 export function MenuSection() {
   return (
-    <div id="menu" className="scroll-mt-16">
+    <div id="menu" tabIndex={-1} className="scroll-mt-16 focus:outline-none">
       <div className="mx-auto max-w-5xl px-5 pt-8">
         <div className="mb-6 flex items-baseline justify-between">
           <h2 className="text-display text-3xl font-semibold text-text-primary sm:text-4xl">
