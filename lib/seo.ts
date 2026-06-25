@@ -31,7 +31,7 @@ export function buildRestaurantJsonLd() {
     name: RESTAURANT.name,
     description:
       'Comida casera argentina: milanesas, pizzas, pastas y guarniciones. Pedí por WhatsApp y retirá en el local.',
-    image: `${SITE_URL}/fotos/la_cocina_de_jose/collage.jpg`,
+    image: `${SITE_URL}/fotos/la_cocina_de_jose/collage.webp`,
     url: SITE_URL,
     telephone: RESTAURANT.whatsappDisplay,
     servesCuisine: ['Argentina', 'Casera', 'Italiana'],

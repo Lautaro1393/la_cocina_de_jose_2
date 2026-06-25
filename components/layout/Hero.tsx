@@ -14,7 +14,7 @@ export function Hero() {
       "
     >
       <Image
-        src="/fotos/la_cocina_de_jose/pixlr-image-generator-290300b4-7034-4daf-8601-011a7c7d0133.png"
+        src="/fotos/la_cocina_de_jose/pixlr-image-generator-290300b4-7034-4daf-8601-011a7c7d0133.webp"
         alt="Plato estrella de La Cocina de José"
         fill
         priority
@@ -43,21 +43,12 @@ export function Hero() {
             Sin registros, sin apps, sin vueltas.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button
-              variant="primary"
-              className="h-12 px-6 text-base font-semibold rounded-full
-                bg-accent hover:bg-accent-hover text-text-primary
-                shadow-[0_8px_24px_rgba(177,66,47,0.35)] active:scale-[0.97]
-                inline-flex items-center justify-center gap-2 px-7"
-              onClick={() => {
-                document
-                  .getElementById('menu')
-                  ?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Ver menú de hoy
-              <ChevronDown className="h-4 w-4" aria-hidden="true" />
-            </Button>
+            <a href="#menu">
+              <Button variant="primary" className="px-7">
+                Ver menú de hoy
+                <ChevronDown className="h-4 w-4" aria-hidden="true" />
+              </Button>
+            </a>
             <a
               href={`https://wa.me/5491169146371?text=${encodeURIComponent('Hola, quiero hacer una consulta.')}`}
               target="_blank"
