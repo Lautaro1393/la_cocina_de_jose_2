@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og';
-import { menu } from '@/lib/menu';
+import { getMenu } from '@/lib/menu';
 import { RESTAURANT } from '@/lib/constants';
 import { formatARS } from '@/lib/format';
 
@@ -7,6 +7,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
+  const menu = await getMenu();
   const featured = menu[0]?.dishes[0];
 
   return new ImageResponse(

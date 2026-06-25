@@ -1,4 +1,4 @@
-import { menu } from './menu';
+import { fallbackMenu } from './menu-fallback';
 import { RESTAURANT } from './constants';
 
 const SITE_URL =
@@ -45,7 +45,7 @@ export function buildRestaurantJsonLd() {
     hasMenu: {
       '@type': 'Menu',
       name: 'Menú del día',
-      hasMenuSection: menu.map((category) => ({
+      hasMenuSection: fallbackMenu.map((category) => ({
         '@type': 'MenuSection',
         name: category.title,
         hasMenuItem: category.dishes

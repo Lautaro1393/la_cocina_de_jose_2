@@ -1,6 +1,10 @@
+import { Suspense } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Hero } from '@/components/layout/Hero';
-import { MenuSection } from '@/components/menu/MenuSection';
+import {
+  MenuSection,
+  MenuSectionFallback,
+} from '@/components/menu/MenuSection';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 
 export default function HomePage() {
@@ -9,7 +13,9 @@ export default function HomePage() {
       <Header />
       <main className="pb-20">
         <Hero />
-        <MenuSection />
+        <Suspense fallback={<MenuSectionFallback />}>
+          <MenuSection />
+        </Suspense>
       </main>
       <CartDrawer />
     </>

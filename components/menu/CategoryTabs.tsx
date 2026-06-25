@@ -2,14 +2,19 @@
 
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import { menu } from '@/lib/menu';
+import type { Category } from '@/types/menu';
 
-export function CategoryTabs() {
-  const [activeId, setActiveId] = useState<string>(menu[0]?.id ?? '');
+interface CategoryTabsProps {
+  categories: Category[];
+}
+
+export function CategoryTabs({ categories }: CategoryTabsProps) {
+  const [activeId, setActiveId] = useState<string>(categories[0]?.id ?? '');
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const sections = menu
+    const sections = categories
       .map((c) => document.getElementById(`cat-${c.id}`))
       .filter((el): el is HTMLElement => el !== null);
 
@@ -32,17 +37,23 @@ export function CategoryTabs() {
 
     sections.forEach((s) => observerRef.current?.observe(s));
     return () => observerRef.current?.disconnect();
-  }, []);
+  }, [categories]);
 
   const handleClick = (id: string) => {
     const el = document.getElementById(`cat-${id}`);
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 130;
+    // Compensa header (sticky) + este nav (sticky). Se mide en runtime
+    // porque el alto puede variar segun el viewport.
+    const header = document.querySelector('header');
+    const headerH = header?.offsetHeight ?? 64;
+    const tabsH = navRef.current?.offsetHeight ?? 56;
+    const top = el.getBoundingClientRect().top + window.scrollY - headerH - tabsH - 8;
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (
     <div
+      ref={navRef}
       className="
         sticky top-16 z-30 w-full
         glass border-b border-border-subtle
@@ -53,7 +64,7 @@ export function CategoryTabs() {
         aria-label="Categorías del menú"
         className="no-scrollbar mx-auto flex max-w-5xl gap-2 overflow-x-auto px-5 py-3"
       >
-        {menu.map((c) => {
+        {categories.map((c) => {
           const active = activeId === c.id;
           return (
             <button
