@@ -2,6 +2,8 @@
 
 Landing page transaccional mobile-first para un local de comida. El objetivo es reducir la fricción entre ver el menú y hacer el pedido: **cero registros, cero apps, todo termina en un mensaje pre-armado de WhatsApp**.
 
+**Producción:** https://lacocinadejose2.vercel.app
+
 ## Stack
 
 - **Next.js 15** (App Router) + **React 19** + **TypeScript**
