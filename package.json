@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
     "dev:studio": "cd sanity-studio && pnpm dev",
     "dev:all": "concurrently \"pnpm dev\" \"pnpm dev:studio\"",
     "build": "next build",
