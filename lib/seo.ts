@@ -38,9 +38,18 @@ export function buildRestaurantJsonLd() {
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: RESTAURANT.address,
+      streetAddress: RESTAURANT.address.line1,
+      addressLocality: RESTAURANT.address.line2.split(',')[0]?.trim(),
+      postalCode: RESTAURANT.address.line2.match(/\d{4,}/)?.[0],
+      addressRegion: RESTAURANT.address.locality,
       addressCountry: 'AR',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: -34.6474199,
+      longitude: -58.5652227,
+    },
+    hasMap: RESTAURANT.googleMapsUrl,
     openingHoursSpecification,
     hasMenu: {
       '@type': 'Menu',

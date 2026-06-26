@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 import './globals.css';
 import { DrawerInertController } from '@/components/cart/DrawerInertController';
+import { Footer } from '@/components/layout/Footer';
 import { buildFaqJsonLd, buildRestaurantJsonLd, getSiteUrl } from '@/lib/seo';
 import { RESTAURANT } from '@/lib/constants';
 
@@ -120,6 +121,7 @@ export default function RootLayout({
           Saltar al menú
         </a>
         {children}
+        <Footer />
         <DrawerInertController />
         <script
           type="application/ld+json"
