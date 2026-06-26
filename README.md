@@ -75,4 +75,3 @@ Para producción, el número se inyecta en el build. Editar `lib/whatsapp.ts` o 
 - Deploy a **Vercel** con env vars.
 - Accesibilidad profunda (focus trap real en el drawer, skip links).
 - Tests con **Vitest** + **Testing Library**.
-
